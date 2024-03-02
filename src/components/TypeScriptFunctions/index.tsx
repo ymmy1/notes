@@ -3,6 +3,7 @@ function TypeScriptFunctions() {
     <>
       <hr />
       <h2>TypeScriptFunctions</h2>
+      <p>In Progress</p>
     </>
   );
 }
