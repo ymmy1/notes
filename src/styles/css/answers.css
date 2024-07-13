@@ -1,0 +1,29 @@
+h3 {
+  cursor: pointer;
+  font-size: 1rem;
+}
+h3:hover {
+  color: #61dafb;
+}
+
+ul {
+  list-style: none;
+}
+
+.answers h2 {
+  font-size: 3rem;
+}
+.answers .question-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.answers .question-box div {
+  width: 1000px;
+}
+.answers .question-box div img {
+  width: 100%;
+}/*# sourceMappingURL=answers.css.map */

@@ -1,11 +1,14 @@
 import reactLogo from './assets/react.svg';
 import './App.css';
-import ApiNotes from './components/ApiNotes';
-import ReactHooks from './components/ReactHooks';
-import JavaScriptFunctions from './components/JavaScriptFunctions';
-import TypeScriptFunctions from './components/TypeScriptFunctions';
+import Notes from './components/Notes';
+import YmmyExpert from './components/YmmyExpert';
+import { useState } from 'react';
 
 function App() {
+  const DEFAULT_ACTIVE_TAB = 'Notes';
+  const [activeTab, setActiveTab] = useState(DEFAULT_ACTIVE_TAB);
+  const activeTabName = ['Notes', 'YmmyExpert'];
+
   return (
     <div className='container'>
       <div>
@@ -13,11 +16,17 @@ function App() {
           <img src={reactLogo} className='logo react' alt='React logo' />
         </a>
       </div>
-      <h1>Notes</h1>
-      <ApiNotes />
-      <ReactHooks />
-      <JavaScriptFunctions />
-      <TypeScriptFunctions />
+      <span>
+        <h1
+          onClick={() =>
+            setActiveTab(activeTab === 'Notes' ? 'YmmyExpert' : 'Notes')
+          }
+        >
+          {activeTabName[activeTab === 'Notes' ? 0 : 1]}
+        </h1>
+      </span>
+      {activeTab === 'Notes' ? <Notes /> : <YmmyExpert />}
+      <span></span>
     </div>
   );
 }
