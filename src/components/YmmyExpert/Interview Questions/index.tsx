@@ -5,13 +5,18 @@ import data from './API/api'; // Ensure correct import path
 type Question = {
   id: number;
   name: string;
-  question: string;
-  answer: string;
-  example: string;
+  questions: Array<string>;
+  answers: Array<string>;
+  examples: Array<string>;
 };
 
 type Data = {
-  [key: string]: Question[];
+  HTML: Question[];
+  CSS: Question[];
+  JavaScript: Question[];
+  'DOM Manipulation': Question[];
+  'React Components': Question[];
+  'React Hooks': Question[];
 };
 
 const InterviewQuestions: React.FC = () => {
@@ -48,11 +53,11 @@ const InterviewQuestions: React.FC = () => {
     <>
       {!showAnswer && (
         <>
-          {Object.keys(data).map((category: keyof Data) => (
+          {Object.keys(data).map((category) => (
             <section key={category} className='questions'>
               <h2>{category}</h2>
               <ul>
-                {data[category].map((item: Question) => (
+                {data[category as keyof Data].map((item: Question) => (
                   <li
                     key={item.id}
                     className={`question q${category}`}
