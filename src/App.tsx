@@ -2,12 +2,19 @@ import reactLogo from './assets/react.svg';
 import './App.css';
 import Notes from './components/Notes';
 import YmmyExpert from './components/YmmyExpert';
+import ApiDesign from './components/ApiDesign';
 import { useState } from 'react';
 
+const TABS = ['Notes', 'YmmyExpert', 'ApiDesign'] as const;
+type Tab = typeof TABS[number];
+
 function App() {
-  const DEFAULT_ACTIVE_TAB = 'Notes';
-  const [activeTab, setActiveTab] = useState(DEFAULT_ACTIVE_TAB);
-  const activeTabName = ['Notes', 'YmmyExpert'];
+  const [activeTab, setActiveTab] = useState<Tab>('Notes');
+
+  const cycleTab = () => {
+    const next = (TABS.indexOf(activeTab) + 1) % TABS.length;
+    setActiveTab(TABS[next]);
+  };
 
   return (
     <div className='container'>
@@ -17,15 +24,11 @@ function App() {
         </a>
       </div>
       <span>
-        <h1
-          onClick={() =>
-            setActiveTab(activeTab === 'Notes' ? 'YmmyExpert' : 'Notes')
-          }
-        >
-          {activeTabName[activeTab === 'Notes' ? 0 : 1]}
-        </h1>
+        <h1 onClick={cycleTab}>{activeTab}</h1>
       </span>
-      {activeTab === 'Notes' ? <Notes /> : <YmmyExpert />}
+      {activeTab === 'Notes' && <Notes />}
+      {activeTab === 'YmmyExpert' && <YmmyExpert />}
+      {activeTab === 'ApiDesign' && <ApiDesign />}
       <span></span>
     </div>
   );

@@ -1,130 +1,65 @@
 function SortArray() {
   return (
     <>
-      <div>
-        <h3>Alphabetic Sort</h3>
-        <button
-          onClick={() =>
-            window.open(
-              'https://www.w3schools.com/js/js_array_sort.asp#mark_sort',
-              '_blank'
-            )
-          }
-        >
-          sort()
-        </button>
+      <h3>Sort Array</h3>
+      <div className='notes-grid'>
 
-        <button
-          onClick={() =>
-            window.open(
-              'https://www.w3schools.com/js/js_array_sort.asp#mark_reverse',
-              '_blank'
-            )
-          }
-        >
-          reverse()
-        </button>
+        <div className='notes-card'>
+          <div className='notes-card-label'>sort()  — strings</div>
+          <pre>{`['b', 'a', 'c'].sort()
+// → ['a', 'b', 'c']  (mutates!)`}</pre>
+        </div>
 
-        <button
-          onClick={() =>
-            window.open(
-              'https://www.w3schools.com/js/js_array_sort.asp#mark_tosorted',
-              '_blank'
-            )
-          }
-        >
-          toSorted()
-        </button>
+        <div className='notes-card'>
+          <div className='notes-card-label'>sort()  — numbers</div>
+          <pre>{`[10, 1, 5].sort()
+// → [1, 10, 5]  ← WRONG (lexicographic)
 
-        <button
-          onClick={() =>
-            window.open(
-              'https://www.w3schools.com/js/js_array_sort.asp#mark_toreversed',
-              '_blank'
-            )
-          }
-        >
-          toReversed()
-        </button>
+[10, 1, 5].sort((a, b) => a - b)
+// → [1, 5, 10]  ✓`}</pre>
+        </div>
 
-        <button
-          onClick={() =>
-            window.open(
-              'https://www.w3schools.com/js/js_array_sort.asp#mark_objects',
-              '_blank'
-            )
-          }
-        >
-          Sorting Objects
-        </button>
-      </div>
-      <div>
-        <h3>Numeric Sort</h3>
-        <button
-          onClick={() =>
-            window.open(
-              'https://www.w3schools.com/js/js_array_sort.asp#mark_numeric',
-              '_blank'
-            )
-          }
-        >
-          Numeric Sort
-        </button>
+        <div className='notes-card'>
+          <div className='notes-card-label'>sort()  — objects</div>
+          <pre>{`const users = [{ age: 30 }, { age: 20 }]
+users.sort((a, b) => a.age - b.age)
+// → sorted by age asc  (mutates!)`}</pre>
+        </div>
 
-        <button
-          onClick={() =>
-            window.open(
-              'https://www.w3schools.com/js/js_array_sort.asp#mark_random',
-              '_blank'
-            )
-          }
-        >
-          Random Sort
-        </button>
+        <div className='notes-card'>
+          <div className='notes-card-label'>reverse()</div>
+          <pre>{`[1, 2, 3].reverse()
+// → [3, 2, 1]  (mutates!)`}</pre>
+        </div>
 
-        <button
-          onClick={() =>
-            window.open(
-              'https://www.w3schools.com/js/js_array_sort.asp#mark_mathmin',
-              '_blank'
-            )
-          }
-        >
-          Math.min()
-        </button>
+        <div className='notes-card'>
+          <div className='notes-card-label'>toSorted()</div>
+          <pre>{`const a = [3, 1, 2]
+const b = a.toSorted()
+// → [1, 2, 3]
+// a unchanged — [3, 1, 2]`}</pre>
+        </div>
 
-        <button
-          onClick={() =>
-            window.open(
-              'https://www.w3schools.com/js/js_array_sort.asp#mark_mathmax',
-              '_blank'
-            )
-          }
-        >
-          Math.max()
-        </button>
+        <div className='notes-card'>
+          <div className='notes-card-label'>toReversed()</div>
+          <pre>{`const a = [1, 2, 3]
+const b = a.toReversed()
+// → [3, 2, 1]
+// a unchanged — [1, 2, 3]`}</pre>
+        </div>
 
-        <button
-          onClick={() =>
-            window.open(
-              'https://www.w3schools.com/js/js_array_sort.asp#mark_homemin',
-              '_blank'
-            )
-          }
-        >
-          Home made Min()
-        </button>
+        <div className='notes-card'>
+          <div className='notes-card-label'>Math.min / max</div>
+          <pre>{`Math.min(...[3, 1, 2])  // → 1
+Math.max(...[3, 1, 2])  // → 3`}</pre>
+        </div>
 
-        <button
-          onClick={() =>
-            window.open(
-              'https://www.w3schools.com/js/js_array_sort.asp#mark_homemax',
-              '_blank'
-            )
-          }
-        >
-          Home made Max()
-        </button>
+        <div className='notes-card'>
+          <div className='notes-card-label'>random sort (shuffle)</div>
+          <pre>{`[1, 2, 3, 4].sort(() => Math.random() - 0.5)
+// → shuffled  (not uniform, but practical)`}</pre>
+        </div>
+
       </div>
     </>
   );
