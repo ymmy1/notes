@@ -63,6 +63,29 @@
   background: #252525;
   border-bottom: 1px solid #2e2e2e;
   color: #61dafb;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.notes-card-label:hover {
+  background: #2d2d2d;
+}
+.notes-card-toggle {
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.6;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+}
+.notes-card-body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s ease;
+}
+.notes-card-body.open {
+  max-height: 700px;
 }
 .notes-card pre {
   margin: 0;

@@ -1,11 +1,12 @@
+import { NoteCard } from '../NoteCard'
+
 function TypeDeclarations() {
   return (
     <>
       <h3>Type Declarations</h3>
       <div className='notes-grid'>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>type alias</div>
+        <NoteCard label='type alias'>
           <pre>{`type User = {
   id: number
   name: string
@@ -13,10 +14,9 @@ function TypeDeclarations() {
 }
 
 const u: User = { id: 1, name: 'Ali' }`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>interface</div>
+        <NoteCard label='interface'>
           <pre>{`interface Animal {
   name: string
 }
@@ -25,44 +25,39 @@ interface Dog extends Animal {
 }
 
 const d: Dog = { name: 'Rex', breed: 'Lab' }`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>type vs interface</div>
+        <NoteCard label='type vs interface'>
           <pre>{`// interface → extend with extends, re-declare to merge
 // type      → union/intersection, can't re-declare
 
 // prefer interface for objects/classes
 // prefer type for unions, primitives, computed`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>union  |</div>
+        <NoteCard label='union  |'>
           <pre>{`type Status = 'idle' | 'loading' | 'error'
 type Id = string | number
 
 let id: Id = 1
 id = 'abc'  // both valid`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>intersection  &</div>
+        <NoteCard label='intersection  &'>
           <pre>{`type Admin = User & { role: 'admin' }
 // must have ALL fields from both
 
 const a: Admin = { id: 1, name: 'Ali', role: 'admin' }`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>generics  {'<T>'}</div>
+        <NoteCard label='generics  <T>'>
           <pre>{`type Box<T> = { value: T }
 
 const n: Box<number> = { value: 42 }
 const s: Box<string> = { value: 'hi' }`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>primitives</div>
+        <NoteCard label='primitives'>
           <pre>{`let s: string   = 'hello'
 let n: number   = 42
 let b: boolean  = true
@@ -70,18 +65,16 @@ let u: undefined
 let nu: null    = null
 let x: any      = 'anything'  // avoid
 let y: unknown  = getData()   // safe any`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>arrays</div>
+        <NoteCard label='arrays'>
           <pre>{`const nums: number[]        = [1, 2, 3]
 const strs: Array<string>   = ['a', 'b']
 const fixed: readonly number[] = [1, 2]
 // fixed.push(3)  ← compile error`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>object types</div>
+        <NoteCard label='object types'>
           <pre>{`// inline
 const u: { id: number; name: string } = {
   id: 1, name: 'Ali'
@@ -89,11 +82,11 @@ const u: { id: number; name: string } = {
 
 // Record utility
 const map: Record<string, number> = { a: 1 }`}</pre>
-        </div>
+        </NoteCard>
 
       </div>
     </>
-  );
+  )
 }
 
-export default TypeDeclarations;
+export default TypeDeclarations

@@ -1,21 +1,21 @@
+import { NoteCard } from '../NoteCard'
+
 function NewHooks() {
   return (
     <>
       <h3>New Hooks  — React 19</h3>
       <div className='notes-grid'>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>use()</div>
+        <NoteCard label='use()'>
           <pre>{`// suspend on promise:
 const data = use(fetchUsers())
 // → suspends until resolved
 
 // read context (can be inside conditionals):
 const theme = use(ThemeCtx)  // → 'dark'`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card notes-card-wide'>
-          <div className='notes-card-label'>useActionState()</div>
+        <NoteCard label='useActionState()' wide>
           <pre>{`const [state, action, isPending] = useActionState(
   async (prevState, formData) => {
     const name = formData.get('name')
@@ -30,10 +30,9 @@ const theme = use(ThemeCtx)  // → 'dark'`}</pre>
   <button disabled={isPending}>Save</button>
 </form>
 // → state is { ok: true } after submit`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>useFormStatus()</div>
+        <NoteCard label='useFormStatus()'>
           <pre>{`// must live INSIDE the <form>
 function SubmitBtn() {
   const { pending } = useFormStatus()
@@ -42,10 +41,9 @@ function SubmitBtn() {
   )
 }
 // → pending true while form submits`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card notes-card-wide'>
-          <div className='notes-card-label'>useOptimistic()</div>
+        <NoteCard label='useOptimistic()' wide>
           <pre>{`const [list, addOptimistic] = useOptimistic(serverList)
 
 async function send(text) {
@@ -54,11 +52,11 @@ async function send(text) {
   // if save fails → list automatically reverts
 }
 // → shows update instantly, reverts on error`}</pre>
-        </div>
+        </NoteCard>
 
       </div>
     </>
-  );
+  )
 }
 
-export default NewHooks;
+export default NewHooks

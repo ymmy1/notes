@@ -1,54 +1,49 @@
+import { NoteCard } from '../NoteCard'
+
 function SearchArray() {
   return (
     <>
       <h3>Search Array</h3>
       <div className='notes-grid'>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>indexOf()</div>
+        <NoteCard label='indexOf()'>
           <pre>{`[1, 2, 3, 2].indexOf(2)  // → 1
 [1, 2, 3].indexOf(9)     // → -1  (not found)`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>lastIndexOf()</div>
+        <NoteCard label='lastIndexOf()'>
           <pre>{`[1, 2, 3, 2].lastIndexOf(2)
 // → 3  (last occurrence)`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>includes()</div>
+        <NoteCard label='includes()'>
           <pre>{`[1, 2, 3].includes(2)  // → true
 [1, 2, 3].includes(9)  // → false`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>find()</div>
+        <NoteCard label='find()'>
           <pre>{`[1, 2, 3].find(x => x > 1)
 // → 2  (first match, or undefined)`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>findIndex()</div>
+        <NoteCard label='findIndex()'>
           <pre>{`[1, 2, 3].findIndex(x => x > 1)
 // → 1  (index of first match, or -1)`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>findLast()</div>
+        <NoteCard label='findLast()'>
           <pre>{`[1, 2, 3, 2].findLast(x => x < 3)
 // → 2  (last match)`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>findLastIndex()</div>
+        <NoteCard label='findLastIndex()'>
           <pre>{`[1, 2, 3, 2].findLastIndex(x => x < 3)
 // → 3  (index of last match)`}</pre>
-        </div>
+        </NoteCard>
 
       </div>
     </>
-  );
+  )
 }
 
-export default SearchArray;
+export default SearchArray

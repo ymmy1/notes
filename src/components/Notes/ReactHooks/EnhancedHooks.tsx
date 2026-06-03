@@ -1,11 +1,12 @@
+import { NoteCard } from '../NoteCard'
+
 function EnhancedHooks() {
   return (
     <>
       <h3>Enhanced Hooks  — React 19</h3>
       <div className='notes-grid'>
 
-        <div className='notes-card notes-card-wide'>
-          <div className='notes-card-label'>useTransition()  — now supports async</div>
+        <NoteCard label='useTransition()  — now supports async' wide>
           <pre>{`const [isPending, startTransition] = useTransition()
 
 startTransition(async () => {   // async is new in React 19
@@ -13,10 +14,9 @@ startTransition(async () => {   // async is new in React 19
   setResults(data)
 })
 // → UI stays responsive, isPending is true during transition`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card notes-card-wide'>
-          <div className='notes-card-label'>useDeferredValue()  — now accepts initial value</div>
+        <NoteCard label='useDeferredValue()  — now accepts initial value' wide>
           <pre>{`const [query, setQuery] = useState('')
 const deferred = useDeferredValue(query, '')
 //                                       ↑ initial value (new in React 19)
@@ -24,10 +24,9 @@ const deferred = useDeferredValue(query, '')
 // deferred lags behind query while typing
 // → renders expensive list with stale value, keeps input snappy
 // deferred !== query means a new render is in flight`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card notes-card-wide'>
-          <div className='notes-card-label'>useRef()  — no argument required (React 19 types)</div>
+        <NoteCard label='useRef()  — no argument required (React 19 types)' wide>
           <pre>{`// React 19: useRef<T>() — no null needed when you provide a type
 const ref = useRef<HTMLInputElement>()
 
@@ -36,11 +35,11 @@ const ref = useRef<HTMLInputElement>()
   setup(node)
   return () => cleanup(node)  // cleanup on unmount (new)
 }} />`}</pre>
-        </div>
+        </NoteCard>
 
       </div>
     </>
-  );
+  )
 }
 
-export default EnhancedHooks;
+export default EnhancedHooks

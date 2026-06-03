@@ -1,20 +1,20 @@
+import { NoteCard } from '../NoteCard'
+
 function CoreHooks() {
   return (
     <>
       <h3>Core Hooks</h3>
       <div className='notes-grid'>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>useState()</div>
+        <NoteCard label='useState()'>
           <pre>{`const [count, setCount] = useState(0)
 
 setCount(5)                 // direct
 setCount(prev => prev + 1)  // functional
 // → triggers re-render`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card notes-card-wide'>
-          <div className='notes-card-label'>useEffect()</div>
+        <NoteCard label='useEffect()' wide>
           <pre>{`useEffect(() => {
   const sub = subscribe(id)
   return () => sub.unsubscribe()  // cleanup
@@ -23,10 +23,9 @@ setCount(prev => prev + 1)  // functional
 // []           = mount only
 // no array     = every render
 // [a, b]       = when a or b change`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card notes-card-wide'>
-          <div className='notes-card-label'>useContext()</div>
+        <NoteCard label='useContext()' wide>
           <pre>{`const ThemeCtx = createContext('light')
 
 // wrap tree:
@@ -36,10 +35,9 @@ setCount(prev => prev + 1)  // functional
 
 // consume anywhere inside:
 const theme = useContext(ThemeCtx)  // → 'dark'`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card notes-card-wide'>
-          <div className='notes-card-label'>useReducer()</div>
+        <NoteCard label='useReducer()' wide>
           <pre>{`function reducer(state, action) {
   if (action.type === 'inc') return state + 1
   return state
@@ -49,66 +47,59 @@ const [count, dispatch] = useReducer(reducer, 0)
 dispatch({ type: 'inc' })  // → count is 1
 
 // use instead of useState when next state depends on action type`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>useCallback()</div>
+        <NoteCard label='useCallback()'>
           <pre>{`const handler = useCallback(
   () => doSomething(id),
   [id]
 )
 // same fn ref while id is unchanged
 // → prevents child re-renders`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>useMemo()</div>
+        <NoteCard label='useMemo()'>
           <pre>{`const sorted = useMemo(
   () => items.sort(compareFn),
   [items]
 )
 // → cached, only recomputes when items changes`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>memo()</div>
+        <NoteCard label='memo()'>
           <pre>{`const Child = memo(({ count }) => (
   <div>{count}</div>
 ))
 // → skips re-render if props unchanged`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>useRef()</div>
+        <NoteCard label='useRef()'>
           <pre>{`const ref = useRef<HTMLInputElement>(null)
 
 <input ref={ref} />
 
 ref.current?.focus()
 // → DOM access, no re-render on change`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>useId()</div>
+        <NoteCard label='useId()'>
           <pre>{`const id = useId()
 // → ':r0:'  (unique per instance, stable)
 
 <label htmlFor={id}>Name</label>
 <input id={id} />`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card'>
-          <div className='notes-card-label'>useLayoutEffect()</div>
+        <NoteCard label='useLayoutEffect()'>
           <pre>{`useLayoutEffect(() => {
   // sync — fires after DOM, before paint
   const h = ref.current.offsetHeight
   setHeight(h)
 }, [])
 // → use for DOM measurements`}</pre>
-        </div>
+        </NoteCard>
 
-        <div className='notes-card notes-card-wide'>
-          <div className='notes-card-label'>useImperativeHandle()</div>
+        <NoteCard label='useImperativeHandle()' wide>
           <pre>{`const Input = forwardRef((props, ref) => {
   const innerRef = useRef(null)
   useImperativeHandle(ref, () => ({
@@ -119,11 +110,11 @@ ref.current?.focus()
 
 // parent:
 ref.current.focus()  // calls the exposed method`}</pre>
-        </div>
+        </NoteCard>
 
       </div>
     </>
-  );
+  )
 }
 
-export default CoreHooks;
+export default CoreHooks
